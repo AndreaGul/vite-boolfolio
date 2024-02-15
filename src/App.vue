@@ -1,4 +1,5 @@
 <script>
+import axios from 'axios';
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
 import AppFooter from './components/AppFooter.vue';
@@ -8,7 +9,7 @@ export default {
     return {
       baseUrl: 'http://127.0.0.1:8000/',
       apiUrls: {
-        project: 'api/project',
+        projects: 'api/project',
       },
     };
   },
@@ -19,10 +20,20 @@ export default {
   },
   methods: {
     getProjects() {
-      axios.get();
+      axios
+        .get(this.baseUrl + this.apiUrls.projects)
+        .then((response) => {
+          console.log(response);
+          this.project = response.data.data;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
   },
-  created() {},
+  created() {
+    this.getProjects();
+  },
 };
 </script>
 
