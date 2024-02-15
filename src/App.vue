@@ -1,11 +1,21 @@
 <script>
+import AppHeader from './components/AppHeader.vue';
+import AppMain from './components/AppMain.vue';
+import AppFooter from './components/AppFooter.vue';
 export default {
   name: 'Template',
+  components: {
+    AppHeader,
+    AppMain,
+    AppFooter,
+  },
 };
 </script>
 
 <template>
-  <div>Ecco il template</div>
+  <AppHeader />
+  <AppMain />
+  <AppFooter />
 </template>
 
 <style scoped></style>
