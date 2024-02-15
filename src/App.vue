@@ -7,6 +7,7 @@ export default {
   name: 'Template',
   data() {
     return {
+      projects: [],
       baseUrl: 'http://127.0.0.1:8000/',
       apiUrls: {
         projects: 'api/project',
@@ -24,7 +25,7 @@ export default {
         .get(this.baseUrl + this.apiUrls.projects)
         .then((response) => {
           console.log(response);
-          this.project = response.data.data;
+          this.projects = response.data.data;
         })
         .catch((error) => {
           console.log(error);
@@ -39,7 +40,7 @@ export default {
 
 <template>
   <AppHeader />
-  <AppMain />
+  <AppMain :projects="projects" />
   <AppFooter />
 </template>
 
