@@ -19,7 +19,12 @@ export default {
       <p class="card-text">
         {{ projectContent }}
       </p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+
+      <router-link
+        :to="{ name: 'single-project', params: { slug: project.slug } }"
+      >
+        Dettagli
+      </router-link>
     </div>
   </div>
 </template>
