@@ -12,6 +12,7 @@ export default {
   methods: {
     search() {
       console.log('sto cercando qualcosa');
+
       this.$emit('searchProject');
     },
   },
